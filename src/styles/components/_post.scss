@@ -1,0 +1,39 @@
+.posts-container {
+  padding-top: $l-size;
+  background-color: $off-white;
+}
+
+.post {
+  border: 1px solid lightgray;
+  margin-bottom: $l-size;
+}
+
+.post__header {
+  display: flex;
+  align-items: center;
+  margin: $s-size 0;
+  h3 {
+    margin: 0;
+  }
+}
+
+.post__avatar {
+  margin: 0 $s-size;
+}
+
+.post__img {
+  border-top: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
+  object-fit: contain;
+  width: 100%;
+}
+
+.post__caption {
+  font-size: $s-size;
+  font-weight: 300;
+}
+
+.post__username {
+  font-size: $m-size;
+  font-weight: 800;
+}

@@ -1,0 +1,14 @@
+.header {
+  border-bottom: 1px solid lightgray;
+}
+
+.header__content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header img {
+  width: 150px;
+  margin: $s-size 0;
+  object-fit: contain;
+}
