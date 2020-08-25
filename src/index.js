@@ -1,19 +1,19 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { Provider } from "react-redux";
 import "normalize.css/normalize.css";
 import "./styles/styles.scss";
-import Header from "./components/Header";
-import Post from "./components/Post";
+import configureStore from "./store/configureStore";
+import App from "./App";
+import Login from "./components/Login";
+
+const store = configureStore();
 
 const jsx = (
-  <div>
-    <Header />
-    <div className="posts-container">
-      <Post />
-      <Post />
-      <Post />
-    </div>
-  </div>
+  <Provider store={store}>
+    <Login />
+    <App />
+  </Provider>
 );
 
 ReactDOM.render(jsx, document.getElementById("root"));
