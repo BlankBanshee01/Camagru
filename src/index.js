@@ -12,7 +12,7 @@ const store = configureStore();
 const jsx = (
   <Provider store={store}>
     <Login />
-    <App />
+    {/* <App /> */}
   </Provider>
 );
 
