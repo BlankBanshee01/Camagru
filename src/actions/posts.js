@@ -14,9 +14,19 @@ export const startSetPosts = () => {
       snapshot.docs.forEach((doc) => {
         posts.push({ ...doc.data(), id: doc.id });
       });
-      console.log(posts);
       dispatch(setPosts(posts));
     });
+  };
+};
+
+export const AddPost = (post) => ({
+  type: "ADD_POST",
+  post,
+});
+
+export const startAddPost = (post) => {
+  return (dispatch) => {
+    db.collection("posts").add(post);
   };
 };
 

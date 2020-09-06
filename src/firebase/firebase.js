@@ -1,19 +1,23 @@
 import firebase from "firebase";
+import runtimeEnv from "@mars/heroku-js-runtime-env";
+
+const env = runtimeEnv();
 
 const firebaseConfig = {
-  apiKey: "AIzaSyA4z7yB7o_Fh06guoi2dl7aRjXMOOHidbw",
-  authDomain: "camagru-1e20f.firebaseapp.com",
-  databaseURL: "https://camagru-1e20f.firebaseio.com",
-  projectId: "camagru-1e20f",
-  storageBucket: "camagru-1e20f.appspot.com",
-  messagingSenderId: "363049804007",
-  appId: "1:363049804007:web:7105d5bda0e61177244242",
-  measurementId: "G-N9H4C7HSE8",
+  apiKey: env.REACT_APP_APIKEY,
+  authDomain: env.REACT_APP_AUTH_DOMAIN,
+  databaseURL: env.REACT_APP_DATABASE_URL,
+  projectId: env.REACT_APP_PROJECT_ID,
+  storageBucket: env.REACT_APP_STORAGE_BUCKET,
+  messagingSenderId: env.REACT_APP_MESSAGING_SENDER_ID,
+  appId: env.REACT_APP_ID,
+  measurementId: env.REACT_APP_MEASUREMENT_ID,
 };
 
 const firebaseApp = firebase.initializeApp(firebaseConfig);
 const db = firebaseApp.firestore();
 const auth = firebaseApp.auth();
 const storage = firebaseApp.storage();
+const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
 
-export { db, auth, storage };
+export { db, auth, storage, googleAuthProvider };

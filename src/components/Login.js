@@ -1,12 +1,18 @@
 import React from "react";
+import { connect } from "react-redux";
+import { startLogin } from "../actions/auth";
 
-const Login = () => {
+const Login = (props) => {
   return (
     <div className="Login-container">
-      <button className="button button--signup">Signup</button>
-      <button className="button button--login">Login</button>
+      <button
+        onClick={props.dispatch(startLogin)}
+        className="button button--login"
+      >
+        Login
+      </button>
     </div>
   );
 };
 
-export default Login;
+export default connect()(Login);

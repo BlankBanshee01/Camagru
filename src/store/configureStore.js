@@ -2,6 +2,7 @@ import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
 import postsReducer from "../reducers/posts";
 import authReducer from "../reducers/auth";
+import profileReducer from "../reducers/profile";
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
@@ -10,6 +11,7 @@ export default () => {
     combineReducers({
       posts: postsReducer,
       auth: authReducer,
+      profile: profileReducer,
     }),
     composeEnhancers(applyMiddleware(thunk))
   );

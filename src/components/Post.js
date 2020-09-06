@@ -10,8 +10,8 @@ const Post = (props) => {
       <div className="post">
         <div className="post__header">
           <Avatar
-            alt={props.user}
-            src="/static/images/avatar/1.jpg"
+            alt={props.displayName}
+            src={props.photoURL}
             className="post__avatar"
           />
           <h3>post header</h3>
@@ -19,7 +19,8 @@ const Post = (props) => {
 
         <img className="post__img" src={props.link} alt="img" />
         <h3 className="post__caption">
-          <span className="post__username">{props.user}</span> {props.caption}
+          <span className="post__username">{props.displayName}</span>{" "}
+          {props.caption}
         </h3>
       </div>
     </div>

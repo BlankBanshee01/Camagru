@@ -3,7 +3,7 @@ import Header from "./components/Header";
 import Post from "./components/Post";
 import { connect } from "react-redux";
 import { startSetPosts } from "./actions/posts";
-// import { setPosts } from "./actions/posts";
+import UploadPost from "./components/UploadPost";
 
 export class App extends Component {
   componentDidMount() {
@@ -11,19 +11,24 @@ export class App extends Component {
   }
 
   render() {
+    console.log("prooops", this.props.posts);
     return (
       <div className="App">
         <Header />
         <div className="posts-container">
-          {this.props.posts.map(({ id, user, createdAt, caption, link }) => (
-            <Post
-              key={id}
-              user={user}
-              createdAt={createdAt}
-              caption={caption}
-              link={link}
-            />
-          ))}
+          <UploadPost />
+          {this.props.posts.map(
+            ({ id, profile, createdAt, caption, photoURL }) => (
+              <Post
+                key={id}
+                displayName={profile.displayName}
+                photoURL={profile.photoURL}
+                createdAt={createdAt}
+                caption={caption}
+                link={photoURL}
+              />
+            )
+          )}
         </div>
       </div>
     );
