@@ -7,11 +7,26 @@ export const setPosts = (posts) => {
   };
 };
 
+// export const startSetPosts = () => {
+//   return (dispatch) => {
+//     db.collection("posts").onSnapshot(function (querySnapshot) {
+//       console.log(
+//         "Current cities in CA: ",
+//         querySnapshot.forEach((doc) => console.log(doc.data()))
+//       );
+//       var cities = [];
+//       querySnapshot.forEach(function (doc) {
+//         cities.push(doc.data().caption);
+//       });
+//     });
+//   };
+// };
+
 export const startSetPosts = () => {
   return (dispatch) => {
     db.collection("posts").onSnapshot((snapshot) => {
       const posts = [];
-      snapshot.docs.forEach((doc) => {
+      snapshot.forEach((doc) => {
         posts.push({ ...doc.data(), id: doc.id });
       });
       dispatch(setPosts(posts));

@@ -51,6 +51,7 @@ class UploadPost extends Component {
               createdAt,
               this.props.profile
             );
+            this.setState({ file: null, progress: 0, caption: "" });
           });
       }
     );
@@ -68,6 +69,7 @@ class UploadPost extends Component {
             placeholder="Enter a caption"
           ></input>
           <button>Post</button>
+          <progress value={this.state.progress} max="100"></progress>
           {!!this.state.error && <p>Something went wrong please try again</p>}
         </form>
       </div>
